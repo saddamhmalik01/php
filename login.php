@@ -12,7 +12,8 @@
         $_SESSION['name']=$row['name'];
         header("location: http://localhost/CRUD/dashboard.php");
     }
-    else{
+    else
+    {
         header("location: http://localhost/CRUD/index.php");
     }
         

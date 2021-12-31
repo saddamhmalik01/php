@@ -46,22 +46,13 @@ if(isset( $_SESSION['name'] ))
                 <input type="text"  name="address" value="<?php  echo $row['address'] ?>" disabled><br><br>
                 <label> Remarks:</label><br>
                 <input type="text"  name="remarks"  value="<?php  echo $row['remarks'] ?>" disabled><br><br>
-
-
-
             </form>
         </div>
     </div>
-    <div class="footer">
-
-    </div>
-    <footer>
-
-    </footer>
     </body>
     <?php mysqli_close($con)?>
     </html>
-<?php }
+    <?php }
 else{
     header("location: http://localhost/CRUD/index.php");
 }?>

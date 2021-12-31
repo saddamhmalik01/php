@@ -4,44 +4,67 @@ $name_err = $email_err = $password_err = $password1_err = " ";
 $name = $email = $password = $password1 = "";
 if($_SERVER['REQUEST_METHOD']== 'POST')
 {
-    if(empty($_POST['name'])){
-        $name_err="Name required";
-    }
-    else{
-        $name= $_POST['name'];
-    }
-    if(empty($_POST['email'])){
-        $email_err= "Email required";
-    }
-    else{
-        $email=$_POST['email'];
-    }
-    if(empty($_POST['password'])){
+    if(empty($_POST['name']))
+        {
+            $name_err="Name required";
+        }
+    else
+        {
+            $name= $_POST['name'];
+        }
+    if(empty($_POST['email']))
+        {
+            $email_err= "Email required";
+        }
+    else
+        {
+            $email = $_POST["email"];
+            $pattern = "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^";
+            if (!preg_match($pattern, $email))
+            {
+                $email_err = "Email is not valid.";
+                $email="";
+            }
+            else
+             {
+                 $email = $_POST["email"];
+             }
+        }
+    if(empty($_POST['password']))
+        {
         $password_err= "Password required";
-    }
-    else{
+        }
+    else
+        {
         $password=trim(md5($_POST['password']));
-    }
-    if(empty($_POST['password1'])){
+        }
+    if(empty($_POST['password1']))
+        {
         $password1_err= "Password required";
-    }
+        }
     else{
         $password1 = trim(md5($_POST['password1']));
-    }
-    if(isset($name) && isset($email))
-    {
-    if(isset($password) && isset($password1)){
-    {
-        echo $name;echo $email;echo $password;echo $password1;
-
-        $con = new mysqli('localhost','root','','test');
-        $sql="INSERT INTO `users`(`name`,`email`,`password`) VALUES ('".$name."','".$email."','".$password."')";
-        $result = mysqli_query($con, $sql) or die('query ka chaker babu bhaiya');
-        if(isset($result))
+        }
+    if(($name!='') && ($email!=''))
         {
-            header("location: http://localhost/CRUD/index.php");
-       }
-}}}}
+            if($password==$password1)
+            {
+
+                echo $name;echo $email;echo $password;echo $password1;
+                $con = new mysqli('localhost','root','','test');
+                $sql="INSERT INTO `users`(`name`,`email`,`password`) VALUES ('".$name."','".$email."','".$password."')";
+                $result = mysqli_query($con, $sql) or die('query ka chaker babu bhaiya');
+                if(isset($result))
+                {
+                    header("location: http://localhost/CRUD/index.php");
+                }
+                else
+                {
+                    $password_err = $password1_err = "Password do not match";
+                }
+            }
+        }
+}
 ?>
 <?php ?>
 <!DOCTYPE html>
@@ -67,7 +90,7 @@ if($_SERVER['REQUEST_METHOD']== 'POST')
                         <label> Name:</label><span style="color: red"> <?php echo $name_err; ?></span><br>
                     <input type="text" placeholder="Enter Your Name" name="name" ><br><br>
                         <label> Email:</label><span style="color: red"> <?php echo $email_err; ?></span><br>
-                        <input type="email" placeholder="Enter Your Email" name="email" ><br><br>
+                        <input type="text" placeholder="Enter Your Email" name="email" ><br><br>
                         <label> Password:</label><span style="color: red"> <?php echo $password_err; ?></span><br>
                         <input type="password" placeholder="Enter Your password" name="password" > <br><br>
                         <label> Re-Enter Password:</label><span style="color: red"> <?php echo $password1_err; ?></span><br>

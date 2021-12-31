@@ -30,15 +30,12 @@ else{
                         <label> Password:</label><br>
                         <input type="password" placeholder="Password" name="password"><br><br>
                         <button type="submit">Login</button>
-                    </form>
+                </form>
             </div>
         </div>
         <div class="footer">
 
         </div>
-        <footer>
-
-        </footer>
     </body>
 </html>
 <?php } ?>

@@ -14,4 +14,3 @@ if(mysqli_query($con, $sql))
 }
 
 ?>
-<?php ?>

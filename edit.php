@@ -11,50 +11,41 @@ $id= $_REQUEST['id'];
     <title></title>
     <?php
 
-$con = new mysqli("localhost","root","","test") or die("connction not sucessfull");
-$sql = "SELECT * FROM `forms` WHERE id= $id";
-$result = mysqli_query($con,$sql) or die("tere se nahi hoga");
-$row= mysqli_fetch_assoc($result);
-?>
+        $con = new mysqli("localhost","root","","test") or die("connction not sucessfull");
+        $sql = "SELECT * FROM `forms` WHERE id= $id";
+        $result = mysqli_query($con,$sql) or die("tere se nahi hoga");
+        $row= mysqli_fetch_assoc($result);
+    ?>
 </head>
 <body>
-<div class="header">
-    <h1>CRUD Project</h1>
-</div>
-</div >
-<div class="div1">
-    <button><a href="dashboard.php">Dashboard</a></button>
-   <button><a href="logout.php">logout</a></button>
-
-</div>
-<div class="div2">
-    <div class="registerform">
-        <form method="POST" action="/CRUD/update.php">
-            <h1>Edit Form</h1>
-            <label>ID:</label><br>
-            <input type="text" name="id" value="<?php echo $row['id'] ?>" hidden><br>
-            <label> Name:</label><br>
-            <input type="text"  name="name" value="<?php echo $row['name'] ?>"><br><br>
-            <label> Email:</label><br>
-            <input type="email"  name="email" value="<?php  echo $row['email'] ?>"><br><br>
-            <label> Phone:</label><br>
-            <input type="phone"  name="phone"  value="<?php  echo $row['phone'] ?>"><br><br>
-            <label> Address:</label><br>
-            <input type="text"  name="address" value="<?php  echo $row['address'] ?>"><br><br>
-            <label> Remarks:</label><br>
-            <input type="text"  name="remarks"  value="<?php  echo $row['remarks'] ?>"><br><br>
-            <button type="submit" >Update</button>
-
-<?php ?>
-        </form>
+    <div class="header">
+        <h1>CRUD Project</h1>
     </div>
-</div>
-<div class="footer">
+    <div class="div1">
+        <button><a href="dashboard.php">Dashboard</a></button>
+        <button><a href="logout.php">logout</a></button>
 
-</div>
-<footer>
-
-</footer>
+    </div>
+    <div class="div2">
+        <div class="registerform">
+            <form method="POST" action="/CRUD/update.php">
+                <h1>Edit Form</h1>
+                <label>ID:</label><br>
+                <input type="text" name="id" value="<?php echo $row['id'] ?>" hidden><br>
+                <label> Name:</label><br>
+                <input type="text"  name="name" value="<?php echo $row['name'] ?>"><br><br>
+                <label> Email:</label><br>
+                <input type="email"  name="email" value="<?php  echo $row['email'] ?>"><br><br>
+                <label> Phone:</label><br>
+                <input type="phone"  name="phone"  value="<?php  echo $row['phone'] ?>"><br><br>
+                <label> Address:</label><br>
+                <input type="text"  name="address" value="<?php  echo $row['address'] ?>"><br><br>
+                <label> Remarks:</label><br>
+                <input type="text"  name="remarks"  value="<?php  echo $row['remarks'] ?>"><br><br>
+                <button type="submit" >Update</button>
+            </form>
+        </div>
+    </div>
 </body>
 <?php mysqli_close($con)?>
 </html>
