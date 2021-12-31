@@ -11,7 +11,9 @@ if($_SERVER['REQUEST_METHOD']=="POST") {
         }
     }
 }
+
 ?>
+<?php ?>
 <!doctype html>
 <html>
 <form method="post" action="">

@@ -41,7 +41,7 @@ else{
         </footer>
     </body>
 </html>
-<?php } ?>;
+<?php } ?>
 <style>
     .header{
         height: 100px;

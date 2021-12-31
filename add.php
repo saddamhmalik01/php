@@ -13,4 +13,5 @@ if(mysqli_query($con, $sql))
     header("location: http://localhost/CRUD/forms.php");
 }
 
-?>;
+?>
+<?php ?>

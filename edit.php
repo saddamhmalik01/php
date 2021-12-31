@@ -45,7 +45,7 @@ $row= mysqli_fetch_assoc($result);
             <input type="text"  name="remarks"  value="<?php  echo $row['remarks'] ?>"><br><br>
             <button type="submit" >Update</button>
 
-
+<?php ?>
         </form>
     </div>
 </div>

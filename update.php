@@ -18,6 +18,7 @@ header("location: http://localhost/CRUD/forms.php");
 }
 
 ?>
+        <?php ?>
 <html>
 </html>
 <?php }

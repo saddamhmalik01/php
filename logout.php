@@ -5,3 +5,4 @@ if (isset($_SESSION['name'])) {
     header("location: http://localhost/CRUD/index.php");
 }
 ?>
+<?php ?>

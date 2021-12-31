@@ -42,7 +42,7 @@ if(mysqli_num_rows($result)>0) {
             <th>Remarks</th>
             <th>Action</th>
         </tr>
-
+<?php ?>
         <?php
         while($row = mysqli_fetch_assoc($result)) {
 //    <tr>
